@@ -27,13 +27,13 @@ private TodoContext GetSQLiteTodoContext()
 public void AddNewToDoItem()
 {
     using var context = GetSQLiteTodoContext();
-    var newItem = new ToDoItem { Title = "Finish documentation", IsComplete = false };
+    var newItem = new ToDoItem { Title = "Go to gym", IsComplete = false };
     context.ToDoItems.Add(newItem);
     context.SaveChanges();
 
-    var item = context.ToDoItems.FirstOrDefault(t => t.Title == "Finish documentation");
+    var item = context.ToDoItems.FirstOrDefault(t => t.Title == "Go to gym");
     Assert.IsNotNull(item);
-    Assert.AreEqual("Finish documentation", item.Title);
+    Assert.AreEqual("Go to gym", item.Title);
     Assert.IsFalse(item.IsComplete);
 }
 // Test Retrieving a ToDoItem by ID
